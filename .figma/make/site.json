@@ -1,0 +1,11 @@
+{
+  "title": "Daylen Johnson | Portfolio",
+  "description": "Computer Science graduate building at the intersection of technology, creativity, and people.",
+  "robots": {
+    "index": false
+  },
+  "accessibility": {
+    "addBypassLinks": false,
+    "ignoreReducedMotion": false
+  }
+}
