@@ -74,25 +74,25 @@ function MailIcon() {
 const skillGroups = [
   {
     number: "01",
-    title: "Core development",
-    description: "The foundation I use to build fast, responsive interfaces.",
+    title: "Software Development",
+    description: "Building applications, working with data, and developing reliable software.",
     skills: [
-      ["React", "Component architecture"],
-      ["TypeScript", "Reliable applications"],
-      ["JavaScript", "Modern web experiences"],
-      ["HTML & CSS", "Semantic and responsive"],
+      ["Python", "Data and application development"],
+      ["Go", "Backend development"],
+      ["C & Java", "Programming fundamentals"],
+      ["JavaScript, HTML & CSS", "Web development"],
     ],
   },
   {
     number: "02",
-    title: "Quality & workflow",
-    description:
-      "The details that turn a working product into a thoughtful one.",
+    title: "AI & Data",
+    description: "Exploring machine learning, intelligent systems, and data-driven problem-solving.",
     skills: [
-      ["Responsive design", "Every screen considered"],
-      ["Accessibility", "Inclusive by default"],
-      ["Git & collaboration", "Clear, maintainable work"],
-      ["UI implementation", "Design translated with care"],
+      ["Scikit-learn", ""],
+      ["NumPy & Pandas", ""],
+      ["OpenAI API & LLM integration", ""],
+      ["ChromaDB", ""],
+      ["Data visualization & geospatial analysis", ""],
     ],
   },
 ]
@@ -107,6 +107,7 @@ const projects = [
     description:
       "An interactive machine learning application exploring how climate-related factors influence human displacement through predictive modeling and geospatial visualization.",
     technologies: "Python · Scikit-learn · XGBoost · FastAPI · Leaflet",
+    repoUrl: "https://github.com/lfbianchini/cs463_final_jupyter",
   },
   {
     number: "02",
@@ -119,6 +120,8 @@ const projects = [
     description:
       "A conversational course discovery application that helps students explore university schedules through natural-language queries and relevance-ranked search results.",
     technologies: "Go · JavaScript · HTML · CSS · ChromaDB · OpenAI API",
+    repoUrl: "https://github.com/djohnson17/intelligent-course-search",
+
   },
   {
     number: "03",
@@ -128,7 +131,7 @@ const projects = [
     theme: "project-art-stone",
     description:
       "A climate engagement platform connecting users with climate-related information and initiatives through a web interface and SMS messaging integration.",
-    technologies: "Node.js · Express · Supabase · Twilio · Webflow",
+    technologies: "Webflow · JavaScript · Twilio · Supabase",
   },
 ]
 
@@ -193,8 +196,7 @@ export default function App() {
             Daylen Johnson
           </div>
           <p className="role">
-            Computer Science graduate · Aspiring Creative technologist ·
-            Software developer
+            Computer Science graduate · Creative technologist · Software developer
           </p>
           <p className="intro">
             <span className="fg-inline-bold">
@@ -206,9 +208,10 @@ export default function App() {
           <div className="actions">
             <a
               className="primary-action"
-              href="mailto:djohnson17@dons.usfca.edu?subject=Portfolio%20%E2%80%94%20CV%20request"
+              href="/Daylen Johnson, Portfolio Resume.pdf"
+              download="Daylen Johnson, Portfolio Resume.pdf"
             >
-              Request CV
+              Download CV
               <ArrowIcon />
             </a>
             <a
@@ -269,8 +272,8 @@ export default function App() {
 
           <div className="about-content">
             <p className="about-lead">
-              I&apos;m a developer driven by curiosity, creativity, and the
-              belief that technology can make a difference.
+              I&apos;m a creative technologist driven by curiosity, creativity,
+              and the belief that technology can make a difference.
             </p>
             <p className="about-body">
               My work brings together technology, creativity, and
@@ -318,14 +321,18 @@ export default function App() {
       >
         <div className="projects-heading">
           <div>
-            <p className="section-kicker">What I&apos;ve workED with</p>
+            <p className="section-kicker">Selected work</p>
             <div className="projects-title" id="projects-title">
-              Tools and technologies
+              Technology with
               <br />
-              behind the experience.
+              purpose and impact.
             </div>
           </div>
-          <p className="projects-intro" />
+          <p className="projects-intro">
+            A collection of projects exploring software, intelligent
+            systems, and technology designed to address real-world
+            challenges.
+          </p>
         </div>
 
         <div className="project-grid">
@@ -422,19 +429,23 @@ export default function App() {
                     </p>
                   )}
                 </div>
-                <span
-                  className="project-open"
-                  aria-label="Project details coming soon"
-                >
-                  <ArrowUpRightIcon />
-                </span>
+                {project.repoUrl && (
+                  <a
+                    className="project-open"
+                    href={project.repoUrl}
+                    target="_blank"
+                    rel="noreferrer"
+                    aria-label={`View ${project.title} on GitHub`}
+                  >
+                    <ArrowUpRightIcon />
+                  </a>
+                )}
               </div>
             </article>
           ))}
         </div>
 
         <div className="projects-note">
-          <span>Full case studies and live links are coming next.</span>
           <a className="text-link" href="mailto:djohnson17@dons.usfca.edu">
             Ask about my work
             <ArrowIcon />
@@ -449,16 +460,18 @@ export default function App() {
       >
         <div className="experience-intro">
           <div>
-            <p className="section-kicker">What I work with</p>
+            <p className="section-kicker">Skills & Expertise</p>
             <div className="experience-title" id="experience-title">
-              Skills that shape
+              Tools and technologies
               <br />
-              <span>the experience.</span>
+              <span>behind the ideas.</span>
             </div>
           </div>
+
           <p className="experience-summary">
-            A focused toolkit for building interfaces that are useful, quick,
-            and enjoyable to navigate.
+            A multidisciplinary toolkit for developing software, exploring
+            intelligent systems, and creating technology that addresses real-world
+            challenges.
           </p>
         </div>
 
@@ -481,7 +494,7 @@ export default function App() {
                     </span>
                     <div>
                       <p className="skill-name">{skill}</p>
-                      <p className="skill-detail">{detail}</p>
+                      {detail && <p className="skill-detail">{detail}</p>}
                     </div>
                   </div>
                 ))}
@@ -492,10 +505,6 @@ export default function App() {
 
         <div className="experience-footer">
           <span>Always learning, always refining.</span>
-          <a className="text-link" href="#projects">
-            See these skills in action
-            <ArrowIcon />
-          </a>
         </div>
       </section>
 
@@ -510,18 +519,20 @@ export default function App() {
               <span aria-hidden="true" />
               Available for new opportunities
             </p>
-            <span>Based in India · Working worldwide</span>
+            <span>Based in the San Francisco Bay Area · Open to opportunities</span>
           </div>
 
           <div className="contact-main">
             <div className="contact-title" id="contact-title">
               Have an idea?
               <br />
-              <span>Let&apos;s build it well.</span>
+              <span>Let&apos;s make something meaningful.</span>
             </div>
             <p className="contact-copy">
-              I&apos;m always interested in thoughtful products, ambitious
-              collaborations, and conversations about the web.
+                I&apos;m interested in building thoughtful technology, exploring creative
+                ideas, and working on products that make a difference. Whether it&apos;s
+                software, AI, climate technology, or something entirely new, I&apos;m always
+                open to interesting projects and conversations.
             </p>
           </div>
 
@@ -559,7 +570,7 @@ export default function App() {
 
           <footer className="site-footer">
             <a className="footer-wordmark" href="#home">
-              Rohit Roy<span aria-hidden="true">.</span>
+              Daylen Johnson<span aria-hidden="true">.</span>
             </a>
             <nav className="footer-nav" aria-label="Footer navigation">
               <a href="#about">About</a>
@@ -568,7 +579,7 @@ export default function App() {
               <a href="#contact">Contact</a>
             </nav>
             <div className="footer-meta">
-              <span>© {currentYear} Rohit Roy</span>
+              <span>© {currentYear} Daylen Johnson</span>
               <a href="#home">Back to top ↑</a>
             </div>
           </footer>
