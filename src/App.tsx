@@ -130,7 +130,7 @@ const projects = [
     year: "2026",
     theme: "project-art-stone",
     description:
-      "A climate engagement platform connecting users with climate-related information and initiatives through a web interface and SMS messaging integration.",
+      "A climate communication platform designed to encourage more frequent and informed climate conversations by delivering localized climate information through a web-based signup experience and recurring SMS messages.",
     technologies: "Webflow · JavaScript · Twilio · Supabase",
   },
 ]
